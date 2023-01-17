@@ -1,8 +1,8 @@
 import { PessoaSchema } from "../schemas/pessoaSchema.js";
 
 export class PessoaRepository{
-    async postPessoa(req){
-        return await new PessoaSchema.save().then(()=>{
+    async postPessoa(pessoa){
+        return await new PessoaSchema.save(pessoa).then(()=>{
         })
     } 
 
@@ -11,16 +11,14 @@ export class PessoaRepository{
     }
 
     async deletePessoa(id){
-           return await PessoaSchema.findByIdAndDelete(id);
-
+        return await PessoaSchema.findByIdAndDelete(id);
     } 
 
     async getPessoa(id){
-
-            return await PessoaSchema.findById(id);
+        return await PessoaSchema.findById(id);
     }
 
-    async updatePessoa(id, value){   
-        return await PessoaSchema.findByIdAndUpdate(id, value);
+    async updatePessoa(pessoa){   
+        return await PessoaSchema.findByIdAndUpdate(pessoa._id, pessoa);
     }
 }

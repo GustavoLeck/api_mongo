@@ -3,6 +3,6 @@ import { PessoaRepository } from "../database/repository/pessoa-repository.js";
 export class ReadPessoasController{
     async handle(req, res) {
         const pessoas = await new PessoaRepository().getAllPessoa();
-        res.send(pessoas);
+        return res.status(200).send(pessoas);
     }
 }

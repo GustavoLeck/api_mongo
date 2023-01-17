@@ -2,7 +2,8 @@ import express from 'express';
 import health from "./routes/health-router.js";
 import createPessoa from "./routes/create-pessoa-route.js";
 import readPessoas from "./routes/read-pessoas-route.js";
-import { startDB } from "../config/dbConnection.js";
+import putPessoa from "./routes/update-pessoa-route.js"
+import { startDB } from "./utilities/dbConnection.js";
 
 console.clear();
 
@@ -17,6 +18,7 @@ app.listen(3000, () => {
 	app.use("/api", createPessoa);
 	app.use("/api", health);
 	app.use("/api", readPessoas);
+	app.use("/api", putPessoa)
 });
 
   
