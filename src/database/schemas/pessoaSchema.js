@@ -1,10 +1,7 @@
-const mongoose = require('mongoose');
-const Schema = mongoose.Schema;
-const ObjectId = Schema.ObjectId;
+import mongoose from "mongoose";
 
-
-const pessoa = new Schema({
-    Id: ObjectId,   
+const pessoa = new mongoose.Schema({
+    Id: mongoose.Schema.ObjectId,   
     Nome: {
         type: 'String',
         require: true
@@ -21,7 +18,8 @@ const pessoa = new Schema({
         type: 'String',
         require: true
     }
-})
-mongoose.model('Pessoa', pessoa);
+});
+
+export const PessoaSchema = mongoose.model('Pessoa', pessoa);
 
     

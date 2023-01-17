@@ -1,19 +1,14 @@
-require("dotenv").config();
-
-const mongoose = require('mongoose');
+import mongoose from 'mongoose';
 
 mongoose.set("strictQuery", true);
 
 mongoose.Promise = global.Promise;
 
-async function startDB() {
+export async function startDB() {
   try {
-    await mongoose.connect(process.env.DB_URL)
+    await mongoose.connect("mongodb+srv://Bot:Super_Senha481526@cluster0.sgfic.mongodb.net/test")
   .then(() => console.log('=> DB Connected!'));
   } catch (error) {
     console.log("=> Erro ao conectar ao DB: "+error)
   }
-}
-    
-module.exports = startDB;
-     
+}     
