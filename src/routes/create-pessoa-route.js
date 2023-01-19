@@ -3,9 +3,6 @@ import { CreatePessoaController } from "../controllers/create-pessoa-controller.
 
 const router = express.Router();
 
-router.post(
-    '/createpessoa',
-    new CreatePessoaController().handle
-);
+router.post('/pessoa', new CreatePessoaController().handle);
 
 export default router;

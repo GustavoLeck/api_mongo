@@ -1,13 +1,29 @@
-export class UpdatePessoa{
-    async execute(reqbody){
-        const body = reqbody;
+import { PessoaModel } from "../models/pessoa-model.js";
+import { PessoaRepository } from "../database/repository/pessoa-repository.js";
 
-        if (!body._id) {
+export class UpdatePessoa{
+    async execute(pessoa){
+        if (!pessoa._id) {
             return {
                 message: "Erro ao inserir registro, verifique o conteudo.",
                 status: 422
             }
         }
-        return body;
+
+        const PessoaValidated = new PessoaModel(pessoa);
+
+        if (PessoaValidated.Nome == undefined) {
+            delete PessoaValidated.Nome;
+        }
+        if (PessoaValidated.Sobrenome == undefined) {
+            delete PessoaValidated.Sobrenome;
+        }
+        if (PessoaValidated.Idade == undefined) {
+            delete PessoaValidated.Idade;
+        }
+        if (PessoaValidated.Sexo == undefined) {
+            delete PessoaValidated.Sexo;
+        }
+        return await new PessoaRepository().updatePessoa(PessoaValidated);
     }
 }
