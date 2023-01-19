@@ -27,6 +27,9 @@ export class CreatePessoa {
                 status: 422
             }
         }
+        if (pessoa._id){
+            delete pessoa._id;
+        }
         if (typeof pessoa.Idade != "number") {
             return {
                 message: "Erro ao inserir registro, verifique o conteudo.",
@@ -39,6 +42,6 @@ export class CreatePessoa {
         if (PessoaValidated._id == undefined) {
             delete PessoaValidated._id;
         }
-        return await new  PessoaRepository().postPessoa(PessoaValidated);
+        return await new PessoaRepository().postPessoa(PessoaValidated);
     }
 }

@@ -10,7 +10,7 @@ export class CreatePessoaController {
         }
 
         if(!pessoa.error){
-            return res.status(200).send({message:"Sucess"})
+            return res.status(200).send(pessoa)
         }
     }
 }

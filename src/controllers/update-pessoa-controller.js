@@ -9,7 +9,7 @@ export class UpdatePessoaController {
             return res.status(pessoaValidada.status).send(pessoaValidada.message);
         }
         if (!pessoaValidada.errors) {
-            return res.status(200).send({message:"Sucess"});
+            return res.status(200).send(pessoaValidada);
         }
         
     }
