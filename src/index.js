@@ -6,6 +6,7 @@ import readPessoas from "./routes/read-pessoas-route.js";
 import putPessoa from "./routes/update-pessoa-route.js";
 import delPessoa from "./routes/delete-pessoa-route.js";
 import readPessoa from "./routes/read-pessoa-route.js";
+import createToken from "./routes/create-token.js"
 
 console.clear();
 
@@ -23,6 +24,7 @@ app.listen(3000, () => {
 	app.use("/api", putPessoa);
 	app.use("/api", delPessoa);
 	app.use("/api", readPessoa);
+	app.use("/admin", createToken);
 });
 
   

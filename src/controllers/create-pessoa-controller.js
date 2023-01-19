@@ -1,7 +1,14 @@
 import { CreatePessoa } from "../use-cases/create-pessoa.js"
+import { VerificaToken } from "../use-cases/verifica-token.js";
 
 export class CreatePessoaController {
     async handle(req, res){
+
+        const token = await new VerificaToken().execute(req.headers['auth-token'])
+        
+        if (!oken) {
+            return res.status(200).send({message: "Auth error"});
+        }
 
         const pessoa = await new CreatePessoa().execute(req.body);
 

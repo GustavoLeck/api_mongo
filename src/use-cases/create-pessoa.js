@@ -5,7 +5,7 @@ export class CreatePessoa {
     async execute(pessoa){
         if(!pessoa.Nome){
             return {
-                message: "Erro ao inserir registro, verifique o conteudo.",
+                message: "Erro ao inserir registro, verifique o conteudo 2.",
                 status: 422
             }
         }

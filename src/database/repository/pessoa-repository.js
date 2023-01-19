@@ -1,4 +1,4 @@
-import { PessoaSchema } from "../schemas/pessoaSchema.js";
+import { PessoaSchema } from "../schemas/pessoa-schema.js";
 
 export class PessoaRepository{
     async postPessoa(pessoa){
