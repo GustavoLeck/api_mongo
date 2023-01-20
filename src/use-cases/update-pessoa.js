@@ -3,12 +3,6 @@ import { PessoaRepository } from "../database/repository/pessoa-repository.js";
 
 export class UpdatePessoa{
     async execute(pessoa){
-        if (!pessoa._id) {
-            return {
-                message: "Erro ao inserir registro, verifique o conteudo.",
-                status: 422
-            }
-        }
 
         const PessoaValidated = new PessoaModel(pessoa);
 
