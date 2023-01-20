@@ -1,7 +1,15 @@
 import { CreateToken } from "../use-cases/create-token.js";
+import { VerificaToken } from "../use-cases/verifica-token.js";
 
 export class CreateTokenController{
     async handle(req, res){
+
+        const Validate = await new VerificaToken().execute(req.headers['auth-token'])
+        
+        if (!Validate) {
+            return res.status(200).send({message: "Auth error"});
+        }
+        
         const token = await new CreateToken().execute(req.body);
         if(token.message){
             return res.status(token.status).send(token.message);

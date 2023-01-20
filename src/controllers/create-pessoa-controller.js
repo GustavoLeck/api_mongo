@@ -6,7 +6,7 @@ export class CreatePessoaController {
 
         const token = await new VerificaToken().execute(req.headers['auth-token'])
         
-        if (!oken) {
+        if (!token) {
             return res.status(200).send({message: "Auth error"});
         }
 
