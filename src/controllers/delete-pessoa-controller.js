@@ -8,7 +8,7 @@ export class DeletePessoaController{
         if (pessoaValidate.message) {
             return res.status(pessoaValidate.status).send(pessoaValidate.message);
         }
-        if (!pessoaValidate.errors) {
+        if (pessoa != null) {
             return res.status(200).send({message:"Sucess"})
         }
     }
