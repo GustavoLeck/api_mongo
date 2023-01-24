@@ -3,6 +3,8 @@ import { DeletePessoa } from "../use-cases/delete-pessoa.js";
 export class DeletePessoaController{
     async handle(req, res){
 
+        console.log(`   =>Route used: [${req.method}] ${req.originalUrl}`);
+
         const pessoaValidate = await new DeletePessoa().execute(req.body);
 
         if (pessoaValidate.message) {

@@ -4,6 +4,8 @@ import { VerificaToken } from "../use-cases/verifica-token.js";
 export class CreateTokenController{
     async handle(req, res){
 
+        console.log(`   =>Route used: [${req.method}] ${req.originalUrl}`);
+
         const Validate = await new VerificaToken().execute(req.headers['auth-token'])
         
         if (!Validate) {

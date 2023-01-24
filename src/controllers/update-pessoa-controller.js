@@ -3,6 +3,8 @@ import { UpdatePessoa } from "../use-cases/update-pessoa.js";
 export class UpdatePessoaController {
     async handle(req, res) {
 
+        console.log(`   =>Route used: [${req.method}] ${req.originalUrl}`);
+
         const pessoaValidada = await new UpdatePessoa().execute(req.body);
         
         if (pessoaValidada.message) {
